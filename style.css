@@ -1,1 +1,238 @@
-/* Add styles here */
+:root {
+    --font-primary: 'Poppins', sans-serif;
+
+    /* Number Colors */
+    --color-yellow: #ffc107;
+    --color-blue: #03a9f4;
+    --color-red: #f44336;
+    --color-gray: #9e9e9e;
+    --color-green: #4caf50;
+
+    /* Dark Mode */
+    --bg-dark: #1a1a1e;
+    --surface-dark: #242429;
+    --primary-dark: #8a2be2;
+    --text-primary-dark: #ffffff;
+    --text-secondary-dark: #a9a9b1;
+    --border-dark: #3a3a40;
+    --ball-bg: var(--bg-dark);
+    --ball-border: var(--border-dark);
+
+    /* Light Mode */
+    --bg-light: #f5f5f7;
+    --surface-light: #ffffff;
+    --primary-light: #7b00e0;
+    --text-primary-light: #1d1d1f;
+    --text-secondary-light: #515154;
+    --border-light: #d2d2d7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-dark);
+    color: var(--text-primary-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    text-align: center; /* Global center alignment */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-primary-light);
+    --ball-bg: var(--bg-light);
+    --ball-border: var(--border-light);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--surface-dark);
+    border: 1px solid var(--border-dark);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+body.light-mode .app-container {
+    background-color: var(--surface-light);
+    border-color: var(--border-light);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.app-header {
+    display: flex;
+    justify-content: center; /* Center title */
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-dark);
+    position: relative; /* For positioning the controls */
+}
+
+body.light-mode .app-header {
+    border-bottom-color: var(--border-light);
+}
+
+.app-header h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.controls {
+    position: absolute;
+    right: 1.5rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary-dark);
+}
+
+body.light-mode .theme-toggle {
+    color: var(--text-secondary-light);
+}
+
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+body.light-mode .theme-toggle .icon-sun { display: block; }
+body.light-mode .theme-toggle .icon-moon { display: none; }
+
+.results-container {
+    padding: 1.5rem;
+    display: grid;
+    gap: 1rem; /* Adjusted gap */
+    min-height: 350px;
+}
+
+.lotto-set {
+    display: flex;
+    flex-direction: column; /* Stack label and numbers */
+    align-items: center; /* Center them horizontally */
+    gap: 0.75rem;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.set-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary-dark);
+}
+
+body.light-mode .set-label {
+    color: var(--text-secondary-light);
+}
+
+.number-balls {
+    display: flex;
+    justify-content: center; /* Center the balls within the line */
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.number-ball {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background-color: var(--ball-bg);
+    border: 1px solid var(--ball-border);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+/* Color Coding */
+.number-ball.color-yellow {
+    background-color: var(--color-yellow);
+    border-color: var(--color-yellow);
+    color: #1d1d1f;
+}
+.number-ball.color-blue {
+    background-color: var(--color-blue);
+    border-color: var(--color-blue);
+    color: var(--text-primary-dark);
+}
+.number-ball.color-red {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    color: var(--text-primary-dark);
+}
+.number-ball.color-gray {
+    background-color: var(--color-gray);
+    border-color: var(--color-gray);
+    color: var(--text-primary-dark);
+}
+.number-ball.color-green {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+    color: var(--text-primary-dark);
+}
+
+.app-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-dark);
+}
+
+body.light-mode .app-footer {
+    border-top-color: var(--border-light);
+}
+
+.generate-btn {
+    width: 100%;
+    background-image: linear-gradient(90deg, var(--primary-dark), #6a0dad);
+    color: var(--text-primary-dark);
+    border: none;
+    padding: 1rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+body.light-mode .generate-btn {
+     background-image: linear-gradient(90deg, var(--primary-light), #9300ff);
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+}
+
+@media (max-width: 600px) {
+    body { padding: 0.5rem; }
+    .app-header h1 { font-size: 1rem; }
+    .results-container { padding: 1rem; min-height: 300px; gap: 1rem; }
+    .number-ball { width: 38px; height: 38px; font-size: 1rem; }
+    .number-balls { gap: 0.5rem; }
+    .generate-btn { padding: 0.8rem; }
+}
