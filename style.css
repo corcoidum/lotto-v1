@@ -121,6 +121,40 @@ body.light-mode .theme-toggle .icon-moon { display: none; }
     min-height: 350px;
 }
 
+.quote-container {
+    margin: 1rem 1.5rem 0;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-dark);
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.15), rgba(106, 13, 173, 0.08));
+}
+
+body.light-mode .quote-container {
+    border-color: var(--border-light);
+    background: linear-gradient(135deg, rgba(123, 0, 224, 0.12), rgba(147, 0, 255, 0.06));
+}
+
+.quote-text {
+    font-size: 0.96rem;
+    line-height: 1.45;
+    color: var(--text-primary-dark);
+}
+
+body.light-mode .quote-text {
+    color: var(--text-primary-light);
+}
+
+.quote-author {
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary-dark);
+}
+
+body.light-mode .quote-author {
+    color: var(--text-secondary-light);
+}
+
 .lotto-set {
     display: flex;
     flex-direction: column; /* Stack label and numbers */
@@ -231,6 +265,8 @@ body.light-mode .generate-btn {
 @media (max-width: 600px) {
     body { padding: 0.5rem; }
     .app-header h1 { font-size: 1rem; }
+    .quote-container { margin: 0.75rem 1rem 0; }
+    .quote-text { font-size: 0.9rem; }
     .results-container { padding: 1rem; min-height: 300px; gap: 1rem; }
     .number-ball { width: 38px; height: 38px; font-size: 1rem; }
     .number-balls { gap: 0.5rem; }
