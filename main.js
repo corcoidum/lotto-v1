@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const quoteAuthor = document.getElementById('quote-author');
     const body = document.body;
     const hopefulQuotes = [
-        { text: '행운은 준비된 마음이 기회를 만났을 때 찾아옵니다.', author: '세네카' },
-        { text: '오늘의 작은 용기가 내일의 큰 변화를 만듭니다.', author: '메리 앤 라드마커' },
-        { text: '성공의 비밀은 시작하는 데 있습니다.', author: '마크 트웨인' },
-        { text: '가장 어두운 밤도 끝나고 해는 떠오른다.', author: '빅토르 위고' },
-        { text: '할 수 있다고 믿으면 이미 절반은 이룬 것이다.', author: '시어도어 루스벨트' },
-        { text: '포기하지 않는 한, 실패는 끝이 아니다.', author: '알버트 허버드' },
-        { text: '기회는 스스로 만드는 사람에게 먼저 찾아온다.', author: '크리스 그로서' },
-        { text: '희망은 깨어 있는 사람의 꿈이다.', author: '아리스토텔레스' }
+        { text: 'Luck is what happens when preparation meets opportunity.', author: 'Seneca' },
+        { text: "Today's small courage builds tomorrow's big change.", author: 'Mary Anne Radmacher' },
+        { text: 'The secret of getting ahead is getting started.', author: 'Mark Twain' },
+        { text: 'Even the darkest night will end and the sun will rise.', author: 'Victor Hugo' },
+        { text: 'Believe you can and you\'re halfway there.', author: 'Theodore Roosevelt' },
+        { text: 'Failure is not the end unless you give up.', author: 'Albert Hubbard' },
+        { text: 'Opportunities don\'t happen, you create them.', author: 'Chris Grosser' },
+        { text: 'Hope is a waking dream.', author: 'Aristotle' }
     ];
 
     themeToggle.addEventListener('click', () => {
